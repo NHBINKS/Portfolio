@@ -1,3 +1,7 @@
+html {
+  scroll-padding-top: 80px; /* ajuste selon la hauteur de ton header */
+}
+
 *{
 
 margin:0;
@@ -14,17 +18,21 @@ color:white;
 
 }
 
-header{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 60px;
-background:#111;
-position:fixed;
-width:100%;
-
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(17,17,17,0.9); /* semi-transparent pour voir le contenu derrière */
+  position: fixed; /* header toujours visible */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000; /* toujours au-dessus */
+  backdrop-filter: blur(5px); /* optionnel pour effet flou derrière */
 }
+
+
 
 .logo{
 
