@@ -165,3 +165,57 @@ opacity:1;
 transform:translateY(0);
 
 }
+/* Pour les tablettes et smartphones */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  nav a {
+    margin: 10px;
+  }
+
+  .hero h2 {
+    font-size: 36px; /* réduit la taille du titre sur petit écran */
+  }
+
+  .btn {
+    padding: 10px 20px;
+  }
+
+  .projects {
+    flex-direction: column; /* cartes projets en colonne */
+    gap: 20px;
+  }
+
+  .card {
+    width: 90%; /* prend presque toute la largeur */
+  }
+
+  .loisirs {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo-dev {
+    width: 150px; /* réduit la taille du logo sur mobile */
+    height: 150px;
+  }
+}
+
+/* Pour très petits écrans */
+@media screen and (max-width: 480px) {
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 80px 20px;
+  }
+}
