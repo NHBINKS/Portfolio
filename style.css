@@ -61,15 +61,14 @@ text-align:center;
 }
 
 .logo-dev{
-
-width:180px;
-height:180px;
-border-radius:50%;
-object-fit:cover;
-margin-bottom:20px;
-border:4px solid #00f7ff;
-filter: drop-shadow(0 0 10px #00f7ff);
-
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 4px solid #00f7ff;
+  filter: drop-shadow(0 0 10px #00f7ff);
+  transition: transform 0.3s ease-out;
 }
 
 .hero h2{
@@ -117,10 +116,11 @@ transition:0.3s;
 }
 
 .card:hover{
-
-transform:translateY(-10px);
-
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #00f7ff; /* glow bleu */
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+
 
 .loisirs{
 
@@ -225,5 +225,182 @@ transform:translateY(0);
 
   .section {
     padding: 80px 20px;
+  }
+}
+.skill{
+  margin: 20px 0;
+  text-align: left;
+  max-width: 500px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.bar{
+  width: 100%;
+  background: #1c1c1c;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.progress{
+  height: 20px;
+  background: #00f7ff;
+  width: 0;
+  border-radius: 20px;
+  transition: width 1.5s ease-in-out;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: radial-gradient(circle, #0f0f0f, #111);
+  z-index:-1;
+  animation: pulse 10s infinite alternate;
+}
+@keyframes pulse{
+  0%{ background: radial-gradient(circle, #0f0f0f, #111); }
+  100%{ background: radial-gradient(circle, #111, #0f0f0f); }
+}
+.skill p {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.percent {
+  font-weight: bold;
+  color: #00f7ff;
+}
+
+/* Animation typewriter */
+.typewriter{
+  display: inline-block;
+  overflow: hidden;
+  border-right: .15em solid #00f7ff; /* curseur */
+  white-space: nowrap;
+  animation: typing 3s steps(20, end), blink 0.75s step-end infinite;
+  font-size: 50px;
+  color: #00f7ff;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent }
+  50% { border-color: #00f7ff; }
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: radial-gradient(circle, #0f0f0f, #111);
+  z-index:-1;
+  animation: pulse 10s infinite alternate;
+}
+
+@keyframes pulse{
+  0%{ background: radial-gradient(circle, #0f0f0f, #111); }
+  100%{ background: radial-gradient(circle, #111, #0f0f0f); }
+}
+/* header */
+/* header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* texte/logo à gauche, nav à droite */
+  padding: 20px 60px;
+  background: rgba(17,17,17,0.9);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+  backdrop-filter: blur(5px);
+}
+
+/* texte et logo groupés à gauche */
+.logo {
+  font-size: 24px;
+  color: #00f7ff;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+/* logo qui apparait dans le header */
+.header-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  opacity: 0; /* invisible au départ */
+  transition: all 0.5s ease;
+}
+/* conteneur des cartes */
+.projects-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* chaque carte */
+.card {
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* hover effet pour la carte */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #00f7ff;
+}
+
+/* images à l’intérieur de la carte */
+.project-images {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.project-images img {
+  width: calc(33% - 6.66px);
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.project-images img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00f7ff;
+}
+
+/* responsive */
+@media screen and (max-width: 768px){
+  .card {
+    width: 45%;
+  }
+  .project-images img {
+    width: 48%;
+  }
+}
+@media screen and (max-width: 480px){
+  .card {
+    width: 90%;
+  }
+  .project-images img {
+    width: 100%;
   }
 }
