@@ -31,7 +31,6 @@ window.addEventListener("scroll", () => {
   const headerLogo = document.querySelector(".header-logo");
   if(heroLogo && headerLogo){
     const heroTop = heroLogo.getBoundingClientRect().top;
-
     if(heroTop < 80){ // ajuste selon la hauteur du header
       headerLogo.style.opacity = "1";  // logo du header apparaît
       heroLogo.style.opacity = "0";    // logo hero disparaît
@@ -39,5 +38,33 @@ window.addEventListener("scroll", () => {
       headerLogo.style.opacity = "0";
       heroLogo.style.opacity = "1";
     }
+  }
+
+  // ------------------ Bouton retour en haut ------------------
+  const topBtn = document.getElementById("topBtn");
+  if(window.scrollY > 300){
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+});
+
+// ------------------ Clic sur bouton retour en haut ------------------
+const topBtn = document.getElementById("topBtn");
+topBtn.addEventListener("click", () => {
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+
+// ------------------ Mode sombre / clair ------------------
+const themeBtn = document.getElementById("theme-toggle");
+
+themeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+
+  // change l’icône du bouton
+  if(document.body.classList.contains("light-mode")){
+    themeBtn.textContent = "🌙"; // clair → afficher lune pour basculer en sombre
+  } else {
+    themeBtn.textContent = "☀️"; // sombre → afficher soleil pour basculer en clair
   }
 });
